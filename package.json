@@ -1,0 +1,51 @@
+{
+	"name": "@globallogic/chat-lib",
+	"version": "0.0.44",
+	"description": "chat library with twilio implemented",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"prepublishOnly": "npm version patch && npm run build && pkg-ok",
+		"versionUpdate": "node build/version.js",
+		"start": "npm run build -- --watch",
+		"build": "npm run versionUpdate && tsc",
+		"lint": "tslint -c tslint.json 'src/**/*.ts' --fix",
+		"check": "tsc --noEmit",
+		"check:watch": "npm run ts:type-check -- --watch"
+	},
+	"devDependencies": {
+		"husky": "^2.1.0",
+		"pkg-ok": "^2.3.1",
+		"tslint": "^5.16.0",
+		"typescript": "^3.4.5"
+	},
+	"dependencies": {
+		"twilio-chat": "^3.2.3"
+	},
+	"license": "MIT",
+	"files": [
+		"build",
+		"dist"
+	],
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint",
+			"pre-push": "npm run lint"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://portal-ua.globallogic.com/gitlab/front-end/client-chat.git"
+	},
+	"authors": [
+		"Crystian 'pusher' Bietti (https://www.linkedin.com/in/crystian)"
+	],
+	"keywords": [
+		"seed",
+		"lib",
+		"ts",
+		"typescript",
+		"chat",
+		"eslint"
+	]
+}
